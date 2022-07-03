@@ -26,7 +26,8 @@ class ViewController : UIViewController {
     }
     
     @objc func horizontalBtnTapped(_ sender: UIButton) {
-        
+        let nextVC = HorizontalViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -39,11 +40,13 @@ extension ViewController {
         verticalButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(400)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
         
         horizontalButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(verticalButton.snp.bottom).offset(50)
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

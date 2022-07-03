@@ -2,7 +2,11 @@
 //  HorizontalViewController.swift
 //  ScrollerTEst
 //
+<<<<<<< HEAD
 //  Created by 순진이 on 2022/06/28.
+=======
+//  Created by 순진이 on 2022/06/29.
+>>>>>>> 8fb67b36223e7c4c76fdda60266280204bfbceac
 //
 
 import UIKit

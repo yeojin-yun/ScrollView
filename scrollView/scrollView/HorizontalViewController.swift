@@ -112,6 +112,7 @@ extension HorizontalViewController {
             make.height.equalTo(300)
             make.width.equalTo(width)
         }
+        
         firstLabel.snp.makeConstraints { make in
             make.centerX.equalTo(firstImageView)
             make.top.equalTo(contentView).offset(50)

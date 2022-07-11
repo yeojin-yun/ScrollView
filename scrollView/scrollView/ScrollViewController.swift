@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+
 class ScrollViewController: UIViewController {
 
     let scrollView = UIScrollView()
@@ -36,7 +37,6 @@ extension ScrollViewController {
             view.addSubview($0)
         }
 
-
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -49,7 +49,6 @@ extension ScrollViewController {
             contentView.addSubview($0)
         }
 
-        
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)

@@ -12,13 +12,19 @@ class SecondHorizontalViewController: UIViewController {
 
     let scrollView = UIScrollView()
     let contentView = UIView()
-    let imageView = UIImageView()
+    //let imageView = UIImageView()
     let images = ["뭉치1", "뭉치2", "뭉치3"]
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        scrollView.frame = CGRect(
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureUI()
+        scrollWithImageView()
     }
 }
 
@@ -28,17 +34,18 @@ extension SecondHorizontalViewController: UIScrollViewDelegate {
         print("width: \(scrollView.frame.size.width)")
     }
     
-    /*
-     for index in 0..<initialGuideImage.count {
-         let imageView = UIImageView()
-         let positionX = self.view.frame.width * CGFloat(index)
-         imageView.frame = CGRect(x: positionX, y: 15, width: self.view.frame.width, height: self.view.frame.height-160)
-         imageView.image = initialGuideImage[index]
-         imageView.contentMode = .scaleAspectFit
-         initialScrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
-         self.initialScrollView.addSubview(imageView)
-     }
-     */
+    func scrollWithImageView() {
+        for index in 0..<images.count {
+            let imageView = UIImageView()
+            let positionX = self.view.frame.width * CGFloat(index)
+            print("⭐️\(positionX)")
+            imageView.frame = CGRect(x: positionX, y: -150, width: self.scrollView.bounds.width, height: self.scrollView.bounds.height)
+            imageView.image = UIImage(named: images[index])
+            imageView.contentMode = .scaleAspectFit
+            scrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
+            self.scrollView.addSubview(imageView)
+        }
+    }
 }
 
 extension SecondHorizontalViewController {
@@ -56,13 +63,13 @@ extension SecondHorizontalViewController {
     
     func setDetail() {
         scrollView.backgroundColor = .red
-        imageView.image = UIImage(named: "뭉치1")
+        //imageView.image = UIImage(named: "뭉치1")
     }
     
     func setLayout() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(imageView)
+        //contentView.addSubview(imageView)
         
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -78,11 +85,11 @@ extension SecondHorizontalViewController {
             make.width.equalTo(width * 3)
         }
         
-        imageView.snp.makeConstraints { make in
-            make.leading.equalTo(contentView)
-            make.bottom.equalTo(contentView)
-            make.height.equalTo(scrollView.frameLayoutGuide)
-            make.width.equalTo(width)
-        }
+//        imageView.snp.makeConstraints { make in
+//            make.leading.equalTo(contentView)
+//            make.bottom.equalTo(contentView)
+//            make.height.equalTo(scrollView.frameLayoutGuide)
+//            make.width.equalTo(width)
+//        }
     }
 }

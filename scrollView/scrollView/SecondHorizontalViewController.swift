@@ -17,7 +17,7 @@ class SecondHorizontalViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        scrollView.frame = CGRect(
+//        scrollView.layoutIfNeeded()
     }
 
     override func viewDidLoad() {
@@ -39,11 +39,13 @@ extension SecondHorizontalViewController: UIScrollViewDelegate {
             let imageView = UIImageView()
             let positionX = self.view.frame.width * CGFloat(index)
             print("⭐️\(positionX)")
-            imageView.frame = CGRect(x: positionX, y: -150, width: self.scrollView.bounds.width, height: self.scrollView.bounds.height)
+            print("⭐️\(scrollView.bounds.width)")
+            print("⭐️\(scrollView.bounds.height)")
+            imageView.frame = CGRect(x: positionX, y: -190, width: self.view.bounds.width, height: self.view.bounds.height)
             imageView.image = UIImage(named: images[index])
             imageView.contentMode = .scaleAspectFit
             scrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
-            self.scrollView.addSubview(imageView)
+            self.contentView.addSubview(imageView)
         }
     }
 }

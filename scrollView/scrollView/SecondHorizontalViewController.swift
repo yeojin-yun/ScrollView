@@ -64,7 +64,7 @@ extension SecondHorizontalViewController {
     }
     
     func setDetail() {
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .blue.withAlphaComponent(0.5)
         //imageView.image = UIImage(named: "뭉치1")
     }
     

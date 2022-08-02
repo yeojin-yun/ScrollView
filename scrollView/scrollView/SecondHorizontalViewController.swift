@@ -12,7 +12,7 @@ class SecondHorizontalViewController: UIViewController {
 
     let scrollView = UIScrollView()
     let contentView = UIView()
-    //let imageView = UIImageView()
+//    let imageView = UIImageView()
     let images = ["뭉치1", "뭉치2", "뭉치3"]
     
     override func viewDidLayoutSubviews() {
@@ -25,10 +25,17 @@ class SecondHorizontalViewController: UIViewController {
         view.backgroundColor = .white
         configureUI()
         scrollWithImageView()
+        
+        scrollView.maximumZoomScale = 4.0
+        scrollView.minimumZoomScale = 1.0
     }
 }
 
 extension SecondHorizontalViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return contentView
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset)
         print("width: \(scrollView.frame.size.width)")
@@ -44,8 +51,8 @@ extension SecondHorizontalViewController: UIScrollViewDelegate {
             imageView.frame = CGRect(x: positionX, y: -190, width: self.view.bounds.width, height: self.view.bounds.height)
             imageView.image = UIImage(named: images[index])
             imageView.contentMode = .scaleAspectFit
-            scrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
-            self.contentView.addSubview(imageView)
+            //scrollView.contentSize.width = imageView.frame.width * CGFloat(index + 1)
+            self.scrollView.addSubview(imageView)
         }
     }
 }
@@ -71,7 +78,7 @@ extension SecondHorizontalViewController {
     func setLayout() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        //contentView.addSubview(imageView)
+//        contentView.addSubview(imageView)
         
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()

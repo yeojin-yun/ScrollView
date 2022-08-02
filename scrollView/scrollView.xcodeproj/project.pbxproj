@@ -18,6 +18,8 @@
 		0C03BE042874672600334D85 /* HorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C03BE032874672600334D85 /* HorizontalViewController.swift */; };
 		0C03BE062874676C00334D85 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C03BE052874676C00334D85 /* ScrollViewController.swift */; };
 		0C93F5ED287C4160008A6EAE /* SecondHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C93F5EC287C4160008A6EAE /* SecondHorizontalViewController.swift */; };
+		0C9E179F289818C3009C9945 /* ScrollCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E179E289818C3009C9945 /* ScrollCollectionViewController.swift */; };
+		0C9E17A128993E96009C9945 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9E17A028993E96009C9945 /* MyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		0C03BE032874672600334D85 /* HorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewController.swift; sourceTree = "<group>"; };
 		0C03BE052874676C00334D85 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		0C93F5EC287C4160008A6EAE /* SecondHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondHorizontalViewController.swift; sourceTree = "<group>"; };
+		0C9E179E289818C3009C9945 /* ScrollCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCollectionViewController.swift; sourceTree = "<group>"; };
+		0C9E17A028993E96009C9945 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				0C93F5EC287C4160008A6EAE /* SecondHorizontalViewController.swift */,
 				0C03BE012874671600334D85 /* VerticalViewController.swift */,
 				0C03BE052874676C00334D85 /* ScrollViewController.swift */,
+				0C9E179E289818C3009C9945 /* ScrollCollectionViewController.swift */,
+				0C9E17A028993E96009C9945 /* MyCollectionViewCell.swift */,
 				0C03BDF0287466C000334D85 /* Main.storyboard */,
 				0C03BDF3287466C100334D85 /* Assets.xcassets */,
 				0C03BDF5287466C100334D85 /* LaunchScreen.storyboard */,
@@ -159,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C03BE022874671600334D85 /* VerticalViewController.swift in Sources */,
+				0C9E179F289818C3009C9945 /* ScrollCollectionViewController.swift in Sources */,
+				0C9E17A128993E96009C9945 /* MyCollectionViewCell.swift in Sources */,
 				0C03BE062874676C00334D85 /* ScrollViewController.swift in Sources */,
 				0C03BDEF287466C000334D85 /* ViewController.swift in Sources */,
 				0C03BDEB287466C000334D85 /* AppDelegate.swift in Sources */,

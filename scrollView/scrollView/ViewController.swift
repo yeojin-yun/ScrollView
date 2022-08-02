@@ -12,6 +12,7 @@ class ViewController : UIViewController {
     let verticalButton = UIButton()
     let horizontalButton = UIButton()
     let secondHorizontalButton = UIButton()
+    let scrollButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +33,24 @@ class ViewController : UIViewController {
         let nextVC = SecondHorizontalViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+    @objc func collectionViewTapped(_ sender: UIButton) {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+
+        let nextVC = ScrollCollectionViewController(collectionViewLayout: layout)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension ViewController {
     func setUI() {
-        [verticalButton, horizontalButton, secondHorizontalButton].forEach {
+        [verticalButton, horizontalButton, secondHorizontalButton, scrollButton].forEach {
             view.addSubview($0)
         }
         
@@ -56,6 +70,12 @@ extension ViewController {
             make.top.equalTo(horizontalButton.snp.bottom).offset(50)
             make.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        scrollButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(secondHorizontalButton.snp.bottom).offset(50)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
     }
     
     func setDetail() {
@@ -64,13 +84,16 @@ extension ViewController {
             $0.setTitleColor(.white, for: .normal)
             verticalButton.backgroundColor = .black
             verticalButton.addTarget(self, action: #selector(verticalBtnTapped(_:)), for: .touchUpInside)
-            verticalButton.setTitle("Vertical", for: .normal)
+            verticalButton.setTitle("Vertical Scroll", for: .normal)
             horizontalButton.backgroundColor = .blue
             horizontalButton.addTarget(self, action: #selector(horizontalBtnTapped(_:)), for: .touchUpInside)
-            horizontalButton.setTitle("horizontal", for: .normal)
-            secondHorizontalButton.backgroundColor = .blue.withAlphaComponent(0.5)
+            horizontalButton.setTitle("horizontal Scroll(paging)", for: .normal)
+            secondHorizontalButton.backgroundColor = .blue.withAlphaComponent(0.8)
             secondHorizontalButton.addTarget(self, action: #selector(horizontal2BtnTapped(_:)), for: .touchUpInside)
-            secondHorizontalButton.setTitle("horizontal2", for: .normal)
+            secondHorizontalButton.setTitle("horizontal Scroll(paging)", for: .normal)
+            scrollButton.backgroundColor = .blue.withAlphaComponent(0.6)
+            scrollButton.addTarget(self, action: #selector(collectionViewTapped(_:)), for: .touchUpInside)
+            scrollButton.setTitle("collectionView paging", for: .normal)
         }
     }
 }
